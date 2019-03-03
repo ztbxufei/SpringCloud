@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="zt-common" />
+        <module name="zt-gateway" />
+        <module name="zt-item-api" />
+        <module name="zt-item-service" />
+        <module name="zt-registry" />
+        <module name="zt-search" />
+        <module name="zt-upload" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="zt" target="1.8" />
+      <module name="zt-common" target="1.8" />
+      <module name="zt-gateway" target="1.8" />
+      <module name="zt-item" target="1.8" />
+      <module name="zt-item-api" target="1.8" />
+      <module name="zt-item-service" target="1.8" />
+      <module name="zt-registry" target="1.8" />
+      <module name="zt-search" target="1.8" />
+      <module name="zt-upload" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

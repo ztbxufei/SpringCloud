@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/zt.iml" filepath="$PROJECT_DIR$/zt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zt-common/zt-common.iml" filepath="$PROJECT_DIR$/zt-common/zt-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zt-gateway/zt-gateway.iml" filepath="$PROJECT_DIR$/zt-gateway/zt-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zt-item/zt-item.iml" filepath="$PROJECT_DIR$/zt-item/zt-item.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zt-item/zt-item-api/zt-item-api.iml" filepath="$PROJECT_DIR$/zt-item/zt-item-api/zt-item-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zt-item/zt-item-service/zt-item-service.iml" filepath="$PROJECT_DIR$/zt-item/zt-item-service/zt-item-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zt-registry/zt-registry.iml" filepath="$PROJECT_DIR$/zt-registry/zt-registry.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zt-search/zt-search.iml" filepath="$PROJECT_DIR$/zt-search/zt-search.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zt-upload/zt-upload.iml" filepath="$PROJECT_DIR$/zt-upload/zt-upload.iml" />
+    </modules>
+  </component>
+</project>
