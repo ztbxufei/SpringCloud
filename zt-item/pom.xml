@@ -18,5 +18,11 @@
         <module>zt-item-service</module>
     </modules>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>com.zhatianbang</groupId>
+            <artifactId>zt-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>
