@@ -4,13 +4,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>zt-item</artifactId>
-        <groupId>com.zhatianbang</groupId>
+        <groupId>com.zhatianbang.item</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.zhatianbang.service</groupId>
+    <groupId>com.zhatianbang.item.service</groupId>
     <artifactId>zt-item-api</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
 
     <dependencies>
         <dependency>
