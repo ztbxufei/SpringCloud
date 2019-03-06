@@ -14,16 +14,4 @@
 	<name>zt-user-api</name>
 	<description>Demo project for Spring Boot</description>
 
-	<dependencies>
-		<dependency>
-			<groupId>tk.mybatis</groupId>
-			<artifactId>mapper-core</artifactId>
-			<version>1.0.4</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
-		</dependency>
-	</dependencies>
-
 </project>
