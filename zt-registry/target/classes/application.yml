@@ -6,8 +6,12 @@ spring:
     name: zt-registry
 
 eureka:
+  server:
+    enable-self-preservation: false
   instance:
-    hostname: localhost
+    preferIpAddress: true
+    hostname: ${spring.cloud.client.ip-address}
+    instanceId: ${spring.cloud.client.ip-address}:${server.port}
   client:
     # 通过eureka.client.registerWithEureka：false和fetchRegistry：false来表明自己是一个eureka server.
     registerWithEureka: false

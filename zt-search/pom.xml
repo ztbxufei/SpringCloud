@@ -16,28 +16,15 @@
 	<description>Demo project for Spring Boot</description>
 
 	<dependencies>
-		<!--elasticsearch-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-elasticsearch</artifactId>
-		</dependency>
-		<!--feign-->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-openfeign</artifactId>
+			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.zhatianbang</groupId>
 			<artifactId>zt-common</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-		<!--可以引入需要搜索的其他服务的api-->
-		<dependency>
-			<groupId>com.zhatianbang.item.service</groupId>
-			<artifactId>zt-item-api</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-
 	</dependencies>
 
 </project>
