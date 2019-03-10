@@ -7,7 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 /**
- * @Author: cuzz
+ * @Author: xufei ztb
  * @Date: 2018/10/31 19:19
  * @Description: 自定义异常
  */
