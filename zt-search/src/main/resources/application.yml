@@ -1,11 +1,15 @@
+#端口号
 server:
   port: 8084
+
+#服务名称
 spring:
   application:
     name: search-service
+   #数据库信息
   datasource:
       driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/mysql
+      url: jdbc:mysql://10.10.0.139:3306/mysql
       username: root
       password: 123456
       testWhileIdle: true # 验证连接的有效性
@@ -24,7 +28,8 @@ spring:
 #      cluster-nodes: 10.10.1.156:9300
   jackson:
     default-property-inclusion: non_null # 把是null的值排除
-# 设置服务发现者
+
+# 设置服务发现者（配置服务注册地址）
 eureka:
   client:
     service-url:
@@ -42,6 +47,24 @@ eureka:
 #feign:
 #  hystrix:
 #    enabled: true
+
+#自定义负载均衡策略
+#策略选择：
+#    1、如果每个机器配置一样，则建议不修改策略 (推荐)
+#    2、如果部分机器配置强，则可以改为 WeightedResponseTimeRule
+product-service:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule #当前策略是随机策略
+
+
+#设置服务调用超时时间（推荐设置2秒） 默认optons readtimeout是60，但是由于hystrix默认是1秒超时
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 2000
+        readTimeout: 2000
+        loggerLevel: basic
 
 # mybatis 配置
 mybatis:
