@@ -5,7 +5,7 @@ spring:
     name: search-service
   datasource:
       driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/mysql
+      url: jdbc:mysql://10.10.0.139:3306/mysql
       username: root
       password: 123456
       testWhileIdle: true # 验证连接的有效性
