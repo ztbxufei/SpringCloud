@@ -44,9 +44,10 @@ eureka:
 #    prefer-ip-address: true
 #    ip-address: 10.10.1.156
 #    instance-id: ${spring.application.name}:${server.port}
-#feign:
-#  hystrix:
-#    enabled: true
+# 开启熔断器
+feign:
+  hystrix:
+    enabled: true
 
 #自定义负载均衡策略
 #策略选择：

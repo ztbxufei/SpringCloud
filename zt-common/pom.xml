@@ -16,6 +16,11 @@
 	<description>Demo project for Spring Boot</description>
 
 	<dependencies>
+		<!--web服务-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
 		<!-- 通用Mapper启动器 -->
 		<dependency>
 			<groupId>tk.mybatis</groupId>
@@ -39,9 +44,15 @@
 			<artifactId>lombok</artifactId>
 			<version>1.16.20</version>
 		</dependency>
+        <!--eureka服务-->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+		<!--feign服务-->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
 		</dependency>
 	</dependencies>
 

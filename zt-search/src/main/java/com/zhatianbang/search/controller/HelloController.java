@@ -19,4 +19,9 @@ public class HelloController {
     public String index(){
         return "Hello World" + port;
     }
+
+    @RequestMapping("/port")
+    public String port(){
+        return "Hello World" + port;
+    }
 }
