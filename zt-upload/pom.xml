@@ -20,11 +20,17 @@
 			<artifactId>zt-common</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-		<!--feign服务-->
+		<!--熔断器控制界面 *************************************************** -->
+		<dependency>
+			<groupId>com.netflix.hystrix</groupId>
+			<artifactId>hystrix-javanica</artifactId>
+			<version>RELEASE</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-feign</artifactId>
+			<artifactId>spring-cloud-netflix-hystrix-dashboard</artifactId>
 		</dependency>
+		<!-- ****************************************************************** -->
 	</dependencies>
 
 </project>

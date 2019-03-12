@@ -1,33 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<parent>
-		<artifactId>zt</artifactId>
-		<groupId>com.zhatianbang</groupId>
-		<version>0.0.1-SNAPSHOT</version>
-	</parent>
 	<modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>zt</artifactId>
+        <groupId>com.zhatianbang</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
 
 	<groupId>com.zhatianbang</groupId>
-	<artifactId>zt-gateway</artifactId>
+	<artifactId>zt-config</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>zt-gateway</name>
+	<name>zt-config</name>
 	<description>Demo project for Spring Boot</description>
 
 	<dependencies>
-		<!--注册网关服务-->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-zuul</artifactId>
-		</dependency>
+		<!--eureka-client客户端-->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
-		<!--actuator监控服务-->
+		<!--默认加载了actuator的jar包-->
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-config-server</artifactId>
 		</dependency>
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
 </project>

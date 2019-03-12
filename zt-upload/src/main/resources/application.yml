@@ -3,6 +3,11 @@ server:
 spring:
   application:
     name: upload-service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://10.10.0.139:3306/mysql
+    username: ztbdb
+    password: 123456
   servlet:
     multipart:
       max-file-size: 5MB # 限制文件上传的大小
@@ -10,10 +15,21 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://127.0.0.1:8761/eureka
+      defaultZone: http://localhost:8761/eureka/
   instance:
     lease-renewal-interval-in-seconds: 5 # 每隔5秒发送一次心跳
     lease-expiration-duration-in-seconds: 10 # 10秒不发送就过期
     prefer-ip-address: true
-    ip-address: ${spring.cloud.client.ip-address}
-    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    hostname: ${spring.cloud.client.ip-address}
+    instanceId: ${spring.cloud.client.ip-address}:${server.port}
+# 开启熔断器，目的是调用接口出现故障可以直接调用fallback函数返回错误信息
+feign:
+  hystrix:
+    enabled: true
+
+# 添加熔断器监控台路径配置，不添加会报404
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream,health,info

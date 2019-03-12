@@ -15,6 +15,7 @@
         <module>zt-search</module>
         <module>zt-upload</module>
         <module>zt-user</module>
+        <module>zt-config</module>
     </modules>
     <packaging>pom</packaging>
 

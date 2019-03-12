@@ -1,5 +1,7 @@
 package com.zhatianbang.upload.controller;
 
+import com.zhatianbang.upload.service.searchService.ApiService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,12 +17,15 @@ public class UploadController {
     @Value("${server.port}")
     private String port;
 
+    @Autowired
+    private ApiService apiService;
+
     /**
      * 测试熔断器
      * @return
      */
     @RequestMapping("/index")
     public String index(){
-        return "Hello World" + port;
+        return apiService.index();
     }
 }
