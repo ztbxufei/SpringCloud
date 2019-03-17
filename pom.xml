@@ -8,7 +8,7 @@
     <artifactId>zt</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <modules>
-        <module>zt-registry</module>
+        <module>zt-eureka</module>
         <module>zt-gateway</module>
         <module>zt-common</module>
         <module>zt-item</module>

@@ -15,6 +15,7 @@
 	<description>Demo project for Spring Boot</description>
 
 	<dependencies>
+		<!--手动引入common依赖-->
 		<dependency>
 			<groupId>com.zhatianbang</groupId>
 			<artifactId>zt-common</artifactId>
