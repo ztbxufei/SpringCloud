@@ -30,6 +30,10 @@ public class OrderController {
     @Autowired
     private StringRedisTemplate redisTemplate;
 
+    @RequestMapping({"","/"})
+    public  String initOrder(){
+        return "zt-order服务已成功启动！";
+    }
 
     @RequestMapping("saveOrder")
     public ProductOrderInfo saveOrder(@RequestParam("userId") String userId, @RequestParam("productName") String productName){
