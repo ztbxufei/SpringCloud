@@ -16,6 +16,7 @@
         <module>zt-user</module>
         <module>zt-config</module>
         <module>zt-order</module>
+        <module>zt-product</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -31,6 +32,7 @@
 
     <!--统一配置版本号-->
     <properties>
+        <spring-boot.version>2.0.4.RELEASE</spring-boot.version>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
