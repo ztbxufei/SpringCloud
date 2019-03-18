@@ -12,6 +12,7 @@ import static org.springframework.cloud.netflix.zuul.filters.support.FilterConst
 
 /**
  * 订单服务限流器
+ * 谷歌guava框架，网关限流使用
  * Created by lenovo on 2019/3/14.
  */
 public class OrderRateLimiterFilter extends ZuulFilter {
