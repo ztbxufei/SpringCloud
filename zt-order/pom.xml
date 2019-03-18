@@ -8,7 +8,6 @@
 		<artifactId>zt</artifactId>
 		<groupId>com.zhatianbang</groupId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath>../pom.xml</relativePath>
 	</parent>
 
 

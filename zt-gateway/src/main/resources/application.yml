@@ -1,9 +1,12 @@
+#定义端口号
 server:
-  port: 8763
+  port: 8201
 
+#定义服务名称
 spring:
   application:
     name: zt-gateway
+#配置注册中心地址
 eureka:
   client:
     serviceUrl:
@@ -13,6 +16,11 @@ eureka:
     prefer-ip-address: true
     ip-address: ${spring.cloud.client.ip-address}
     instance-id: ${spring.cloud.client.ip-address}:${server.port}
+
+#自定义路由转发：
+zuul:
+  routes:
+
 zuul:
   prefix: /api # 添加路由前缀
   retryable: true
@@ -28,6 +36,14 @@ zuul:
       path: /upload/** # 将上传微服务映射到/upload/**
       serviceId: upload-service
       strip-prefix : false
+    #将order-service服务路由自定义为apigateway-order
+    #原访问地址：http://localhost:9000/order-service/getProductInfoById?id=2
+    #也可以这样: http://localhost:9000/apigateway-order/getProductInfoById?id=2
+    order-service: /apigateway-order/**
+    product-service: /apigateway-product/**
+  #环境隔离配置：不对外提供order-service访问
+  #配置后：原访问地址：http://localhost:9000/order-service/getProductInfoById?id=2 将不能在访问
+  ignored-patterns: /*-service/**
 ribbon:
   ConnectTimeout: 250 # 连接超时时间(ms)
   ReadTimeout: 2000 # 通信超时时间(ms)
