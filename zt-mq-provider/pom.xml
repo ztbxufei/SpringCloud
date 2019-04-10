@@ -2,44 +2,33 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
-	<!--引入项目最外层父级pom依赖-->
 	<parent>
-		<artifactId>zt</artifactId>
-		<groupId>com.zhatianbang</groupId>
-		<version>0.0.1-SNAPSHOT</version>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.4.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-
-
 	<groupId>com.zhatianbang</groupId>
-	<artifactId>zt-order</artifactId>
+	<artifactId>zt-mq-provider</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>zt-order</name>
-	<description>order-service project for Spring Boot</description>
+	<name>zt-mq-provider</name>
+	<description>Demo project for Spring Boot</description>
 
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
 
 	<dependencies>
-		<!--引入公共依赖-->
+		<!--引入rabitmq依赖-->
 		<dependency>
-			<groupId>com.zhatianbang</groupId>
-			<artifactId>zt-common</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-amqp</artifactId>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-		</dependency>
-		<!--加入rocketmq相关依赖-->
-		<dependency>
-			<groupId>org.apache.rocketmq</groupId>
-			<artifactId>rocketmq-client</artifactId>
-			<version>4.4.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.rocketmq</groupId>
-			<artifactId>rocketmq-common</artifactId>
-			<version>4.4.0</version>
 		</dependency>
 	</dependencies>
 

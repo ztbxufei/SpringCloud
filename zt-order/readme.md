@@ -1,4 +1,5 @@
-订单服务
+微服务之订单服务模块
+JMS：rocketmq
 
 项目遇到的问题及解决
 1、遇到idea新建的java文件标红无法push到git仓库

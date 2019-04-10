@@ -54,3 +54,11 @@ feign:
       default:
         connectTimeout: 2000
         readTimeout: 2000   #设置服务调用超时时间 默认optons readtimeout是60，但是由于hystrix默认是1秒超时
+
+apache:
+  rocketmq:
+    consumer:
+      PushConsumer: orderConsumer
+    producer:
+      producerGroup: Producer
+    namesrvAddr: 10.10.0.138:9876
