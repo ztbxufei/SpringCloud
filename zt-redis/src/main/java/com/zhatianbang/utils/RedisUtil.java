@@ -1,6 +1,7 @@
 package com.zhatianbang.utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
@@ -20,6 +21,9 @@ public class RedisUtil {
     // 这个是关键↓↓↓
     @Autowired
     private RedisTemplate redisTemplate;
+
+    private StringRedisTemplate stringRedisTemplate;
+
 
     //=============================common============================
     /**
@@ -76,6 +80,22 @@ public class RedisUtil {
                 redisTemplate.delete(CollectionUtils.arrayToList(key));
             }
         }
+    }
+
+    /**
+     * 根据传入的str 模糊查询所有的keys
+     * @param str
+     * @return
+     */
+    public Set keys(String str){
+        try{
+            Set<String> keys = redisTemplate.keys(str+"*");
+            return keys;
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+
     }
 
     //============================String=============================

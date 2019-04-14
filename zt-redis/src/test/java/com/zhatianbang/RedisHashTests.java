@@ -8,7 +8,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -22,6 +24,7 @@ public class RedisHashTests {
 	 */
 	@Test
 	public void hMSetTest() {
+		Map<String,Object> Rmap = new HashMap<>();
 		Map<String,Object> map = new HashMap<String,Object>();
 		map.put("carIdCodeType","车辆唯一标示类型");
 		map.put("wheName","仓库名称");
@@ -33,8 +36,9 @@ public class RedisHashTests {
 		map.put("carMktTme","年份款");
 		map.put("carJitVte","国产合资进口");
 		map.put("carClr","颜色");
-		map.put("carFaeId","车架号");
-		redisUtil.hMSet("新车_k5_华东库_HETGS",map);
+		map.put("carFaeId","BBB");
+		Rmap.put("AAA",map);
+		redisUtil.hMSet("新车_k5_华东库",Rmap);
 	}
 
 	/**
@@ -69,6 +73,14 @@ public class RedisHashTests {
 	public void hSetTest(){
 		redisUtil.hSet("新车:k5:华东库","carJitVte","国产合资进口");
 		redisUtil.hSet("新车:k5:华东库","carClr","黑色");
+	}
+
+	/**
+	 * 根据传入的str 模糊查询所有的keys
+	 */
+	@Test
+	public void keysTest(){
+		System.out.println(redisUtil.keys("新车_k5"));
 	}
 
 }
