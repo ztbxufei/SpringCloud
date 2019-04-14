@@ -48,5 +48,6 @@ public class Sender {
 		//参数二：路由键
 		//参数三：消息
 		this.rabbitAmqpTemplate.convertAndSend(this.exchange, this.info_routingkey, msg);
+		this.rabbitAmqpTemplate.convertAndSend(this.exchange, this.routingkey, msg);
 	}
 }
