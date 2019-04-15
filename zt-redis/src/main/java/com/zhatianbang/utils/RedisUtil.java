@@ -1,7 +1,9 @@
 package com.zhatianbang.utils;
+import com.alibaba.fastjson.JSON;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.script.DefaultRedisScript;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
@@ -9,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 /**
  * @author internet
@@ -553,6 +556,18 @@ public class RedisUtil {
             e.printStackTrace();
             return 0;
         }
+    }
+
+
+    /**
+     * redis整合lua表达式,针对hash返回List<map>
+     * @param redisScript
+     * @param list
+     * @return
+     */
+    public List<String> execute(DefaultRedisScript redisScript, List<String> list){
+        List<String> strList = (List<String>) redisTemplate.execute(redisScript,redisTemplate.getKeySerializer(), redisTemplate.getKeySerializer(),list);
+        return strList ;
     }
 
 }
