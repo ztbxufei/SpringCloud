@@ -5,4 +5,11 @@
     <select id="getUserByUsername" parameterType="String" resultType="java.util.Map">
         select username,password from sys_user where username = #{_parameter}
     </select>
+
+    <select id="getApplyInfo" parameterType="String" resultType="java.util.Map">
+    SELECT a.apply_no,a.customername,a.cust_id  FROM application a
+        LEFT JOIN customer c ON a.cust_id = c.cust_id
+        LEFT JOIN bankcardinformation b ON a.apply_no = b.applyid
+        WHERE a.apply_no = #{_parameter}
+    </select>
 </mapper>    

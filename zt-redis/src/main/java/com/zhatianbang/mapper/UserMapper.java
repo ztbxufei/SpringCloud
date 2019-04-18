@@ -13,4 +13,6 @@ import java.util.Map;
 public interface UserMapper {
 
     Map<String,Object> getUserByUsername(String username);
+
+    Map<String,Object> getApplyInfo(String apply_no);
 }

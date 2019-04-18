@@ -1,0 +1,31 @@
+server:
+  port: 8005
+
+#配置mybatis
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+  configLocation: classpath:/mybatis-config.xml
+
+
+spring:
+  datasource:
+    #oracle
+    driverClassName: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@10.10.0.110:1521:ORCL
+    username: zxtestdb
+    password: testzx$7efSJz5cysN162o
+    initialSize: 2
+    minIdle: 1
+    maxActive: 50
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPreConnectionSize: 20
+    maxOpenPreparedStatements: 20
+    filters: config,wall,stat
+    connectionProperties: druid.stat.slowSqlMillis=200;druid.stat.logSlowSql=true;config.decrypt=true
