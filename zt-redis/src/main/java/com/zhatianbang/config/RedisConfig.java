@@ -16,6 +16,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializationContext;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
+import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 
 import java.time.Duration;
 import java.util.HashMap;
@@ -26,10 +27,11 @@ import java.util.Map;
  */
 @Configuration
 @EnableCaching
+@EnableRedisHttpSession(maxInactiveIntervalInSeconds= 50)
 public class RedisConfig {
 
     /**
-     * redisTemplate 序列化使用的jdkSerializeable, 存储二进制字节码, 所以自定义序列化类
+     * redisTemplate 默认序列化使用的jdkSerializeable, 存储二进制字节码, 所以自定义序列化类
      * @param factory
      * @return
      */
@@ -57,7 +59,8 @@ public class RedisConfig {
     }
 
     /**
-     * 自定义key生成规则
+     * 配置KeyGenerator。缓存以key－value的形式保存在redis中
+     * 自定义redis中key生成规则:类名.方法名.参数
      * @return
      */
     @Bean
@@ -77,6 +80,11 @@ public class RedisConfig {
         };
     }
 
+    /**
+     * 配置CacheManager对象。指定RedisCacheManager用于告诉spring boot将使用redis作为系统的缓存。
+     * @param redisConnectionFactory
+     * @return
+     */
     @Bean
     public CacheManager cacheManager(RedisConnectionFactory redisConnectionFactory) {
         return new RedisCacheManager(
@@ -92,8 +100,8 @@ public class RedisConfig {
      */
     private Map<String, RedisCacheConfiguration> getRedisCacheConfigurationMap() {
         Map<String, RedisCacheConfiguration> redisCacheConfigurationMap = new HashMap<>();
-        redisCacheConfigurationMap.put("UserInfoList", this.getRedisCacheConfigurationWithTtl(1000));
-        redisCacheConfigurationMap.put("UserInfoListAnother", this.getRedisCacheConfigurationWithTtl(18000));
+        redisCacheConfigurationMap.put("ApplyInfo", this.getRedisCacheConfigurationWithTtl(1000));
+        redisCacheConfigurationMap.put("AllInfo", this.getRedisCacheConfigurationWithTtl(18000));
         return redisCacheConfigurationMap;
     }
 

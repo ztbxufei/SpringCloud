@@ -16,24 +16,57 @@ import java.util.Map;
  * Created by lenovo on 2019/4/18.
  */
 @Service
-@CacheConfig(cacheNames="userInfoCache") // 本类内方法指定使用缓存时，默认的名称就是userInfoCache
+@CacheConfig(cacheNames="applyInfoCache") // 本类内方法指定使用缓存名称（value）时，默认的名称就是userInfoCache
 @Transactional(propagation= Propagation.REQUIRED,readOnly=false,rollbackFor=Exception.class)
 public class UserApplyService implements com.zhatianbang.service.UserApplyService {
 
     @Autowired
     UserMapper userMapper;
 
+    /**
+     * @Nullable ：定义的参数可以空
+     * @Cacheable(
+     *   value:指定缓存名称
+     *   key:指定缓存key值
+     *   keyGenerator：指定key值所用的生成策略
+     * )
+     * @param apply_no
+     * @return
+     */
     @Override
     @Nullable
-    @Cacheable(value = "UserInfoList", keyGenerator = "simpleKeyGenerator") // @Cacheable 会先查询缓存，如果缓存中存在，则不执行方法
+    @Cacheable(value = "ApplyInfo", keyGenerator = "simpleKeyGenerator") // @Cacheable 会先查询缓存，如果缓存中存在，则不执行方法
     public Map<String,Object> getApplyInfo(String apply_no){
-
         Map<String, Object> applyInfo = userMapper.getApplyInfo(apply_no);
         return applyInfo;
-    };
+    }
+
+    /**
+     *
+     * @param apply_no
+     * @return
+     */
+    @Nullable
+    @Cacheable(value = "ApplyInfo2", keyGenerator = "simpleKeyGenerator") // @Cacheable 会先查询缓存，如果缓存中存在，则不执行方法
+    public Map<String,Object> getApplyInfo2(String apply_no){
+        Map<String, Object> applyInfo = userMapper.getApplyInfo(apply_no);
+        return applyInfo;
+    }
+
+    /**
+     *
+     * @param apply_no
+     * @return
+     */
+    @Nullable
+    @Cacheable() // @Cacheable 会先查询缓存，如果缓存中存在，则不执行方法
+    public Map<String,Object> getApplyInfo3(String apply_no){
+        Map<String, Object> applyInfo = userMapper.getApplyInfo(apply_no);
+        return applyInfo;
+    }
 
     @Nullable
-    @Cacheable(key="#p0") // @Cacheable 会先查询缓存，如果缓存中存在，则不执行方法
+    @Cacheable(key="#p0",value = "catchMap") // @Cacheable 会先查询缓存，如果缓存中存在，则不执行方法
     public Map<String,Object> findById(String id){
         System.err.println("根据id=" + id +"获取用户对象，从数据库中获取");
         Assert.notNull(id,"id不用为空");
@@ -41,7 +74,7 @@ public class UserApplyService implements com.zhatianbang.service.UserApplyServic
     }
 
     @Nullable
-    @Cacheable(value = "UserInfoList", keyGenerator = "simpleKeyGenerator")
+    @Cacheable(value = "AllInfo", keyGenerator = "simpleKeyGenerator")
     public void getAllInfo(String id,String apply_no){
         System.err.println("根据id=" + id +"获取用户对象，从数据库中获取");
         Assert.notNull(id,"id不用为空");
