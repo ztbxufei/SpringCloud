@@ -82,32 +82,47 @@ public class RSAutil {
           return decryptedData;
 
     }
-          
-
-      public static String sign(String content, String charset, String myPriKey) {
-          try {
-                  byte[] decodePubKey = Base64.decode(myPriKey);
-                  PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(decodePubKey);
-                  KeyFactory factory = KeyFactory.getInstance(ALGORITHM);
-                  PrivateKey privateKey = factory.generatePrivate(keySpec);
-
-                  Signature signature = Signature.getInstance(SIGN_ALGORITHMS);
-
-                  signature.initSign(privateKey);
-                  signature.update(content.getBytes(charset));
-
-                  byte[] signed = signature.sign();
-
-                  return Base64.encode(signed);
-
-          } catch (Exception e) {
-                  throw new RuntimeException(e);
-          }
-
-          }
 
 
-      public static boolean verify(String content, String charset, String aliPubKey,String aliSign) {
+    /**
+     * 私钥加签
+     * @param content 加签参数
+     * @param charset 编码
+     * @param myPriKey 私钥
+     * @return
+     */
+    public static String sign(String content, String charset, String myPriKey) {
+        try {
+              byte[] decodePubKey = Base64.decode(myPriKey);
+              PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(decodePubKey);
+              KeyFactory factory = KeyFactory.getInstance(ALGORITHM);
+              PrivateKey privateKey = factory.generatePrivate(keySpec);
+
+              Signature signature = Signature.getInstance(SIGN_ALGORITHMS);
+
+              signature.initSign(privateKey);
+              signature.update(content.getBytes(charset));
+
+              byte[] signed = signature.sign();
+
+              return Base64.encode(signed);
+
+        } catch (Exception e) {
+              throw new RuntimeException(e);
+        }
+
+    }
+
+
+    /**
+     *
+     * @param content
+     * @param charset
+     * @param aliPubKey
+     * @param aliSign
+     * @return
+     */
+    public static boolean verify(String content, String charset, String aliPubKey,String aliSign) {
           try {
                   KeyFactory keyFactory = KeyFactory.getInstance(ALGORITHM);
                   byte[] decodePubKey = Base64.decode(aliPubKey);
@@ -121,10 +136,9 @@ public class RSAutil {
 
                   return signature.verify(Base64.decode(aliSign));
           } catch (Exception e) {
-
-                      throw new RuntimeException(e);
+                  throw new RuntimeException(e);
           }
-      }
+    }
           
                   
       public static void main(String[] args){
