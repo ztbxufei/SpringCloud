@@ -27,7 +27,7 @@ import java.util.Map;
  */
 @Configuration
 @EnableCaching
-@EnableRedisHttpSession(maxInactiveIntervalInSeconds= 50)
+@EnableRedisHttpSession(maxInactiveIntervalInSeconds= 100)
 public class RedisConfig {
 
     /**
@@ -89,7 +89,7 @@ public class RedisConfig {
     public CacheManager cacheManager(RedisConnectionFactory redisConnectionFactory) {
         return new RedisCacheManager(
                 RedisCacheWriter.nonLockingRedisCacheWriter(redisConnectionFactory),
-                this.getRedisCacheConfigurationWithTtl(600), // 默认缓存失效策略，未配置的key会使用这个
+                this.getRedisCacheConfigurationWithTtl(10000), // 默认缓存失效策略，未配置的key会使用这个
                 this.getRedisCacheConfigurationMap() // 指定 key 策略
         );
     }
