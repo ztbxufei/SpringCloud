@@ -70,7 +70,12 @@ public class WebSocketServer {
     public void onMessage(String message, Session session) {
         log.info("收到来自窗口"+sid+"的信息:"+message);
         try {
-            sendMessage(message);
+            //如果是心跳检测发来的消息则返回心跳检测
+            if(message.contains("HeartBeat")){
+                this.session.getBasicRemote().sendText("HeartBeat");
+            }else{
+                sendMessage(message);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -120,7 +125,7 @@ public class WebSocketServer {
         for (String key : webSocketSet.keySet()) {
             try {
                 if (webSocketSet.get(key)!=null) {
-                    webSocketSet.get(key).sendMessage(new Date() + "给用户" + key + "发送的消息是：" + " <br/> " + message);
+                    webSocketSet.get(key).sendMessage(message);
                     System.out.println("key = " + key);
                 }
             } catch (IOException e) {
