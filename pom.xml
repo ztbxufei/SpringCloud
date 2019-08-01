@@ -17,6 +17,10 @@
         <module>zt-config</module>
         <module>zt-order</module>
         <module>zt-product</module>
+        <module>zt-mq-provider</module>
+        <module>zt-mq-consumer</module>
+        <module>zt-websocket</module>
+        <module>zt-product</module>
     </modules>
     <packaging>pom</packaging>
 
