@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<h2>客户端3</h2>
+<h2>客户端</h2>
 建立连接通道:
 <button onclick="createWebSocket()" type="button">connect</button>
 <br>
@@ -35,7 +35,7 @@
         if ('WebSocket' in window) {
             return "ws://localhost:8083/websocket/cbhbank_chart3";
         } else {
-            console.info("不支持websocket");
+            console.info("您的浏览器不支持websocket");
         }
     }
 
@@ -75,6 +75,7 @@
         }
     }
 
+    // 重连
     function reconnect(url) {
         if(lockReconnect) return;
         lockReconnect = true;
@@ -86,7 +87,9 @@
         }, 5000);
     }
 
+    // 处理前端业务逻辑
     function showContent(msg) {
+        // msg=HeartBeat是心跳检测返回的服务端消息，不做业务逻辑处理
         if(msg != 'HeartBeat'){
             document.getElementById("notice").append(msg);
         }
@@ -112,12 +115,13 @@
                 console.info("客户端发送心跳：" + new Date().format("yyyy-MM-dd hh:mm:ss"));
                 //如果超过一定时间还没重置，说明后端主动断开了
                 self.serverTimeoutObj = setTimeout(function(){
-                    //如果onclose会执行reconnect，我们执行ws.close()就行了.如果直接执行reconnect 会触发onclose导致重连两次
+                    //如果onclose会执行reconnect，执行ws.close()就行了.如果直接执行reconnect 会触发onclose导致重连两次
                     ws.close();
                 }, self.timeout)
             }, this.timeout)
         }
     }
+
     //js中格式化日期，调用的时候直接：new Date().format("yyyy-MM-dd hh:mm:ss")
     Date.prototype.format = function(fmt) {
         var o = {
@@ -139,5 +143,6 @@
         }
         return fmt;
     }
+
 </script>
 </html>

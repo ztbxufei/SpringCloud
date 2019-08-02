@@ -21,7 +21,7 @@ public class Timingtask {
     /**
      * 定时任务1分钟执行一次 每小时整开始执行,模拟后台推送数据
      */
-    @Scheduled(cron = "0 0/1 * * * ?")
+    //@Scheduled(cron = "0 0/1 * * * ?")
     public void loanResultQueryCronOneHour() throws InterruptedException {
         Map<String,Object> map  = new HashMap<String,Object>();
         map.put("time",new Date());
