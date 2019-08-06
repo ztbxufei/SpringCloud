@@ -13,6 +13,17 @@ import java.io.File;
 import java.io.IOException;
 
 
+/**
+ * 功能描述:
+ * <pdf转图片工具类，依赖
+   <dependency>
+     <groupId>org.icepdf</groupId>
+     <artifactId>icepdf-core</artifactId>
+     <version>6.2.2</version>
+   </dependency>>
+ * @author : zm
+ * @date : 2019/8/6
+ */
 public class PDFToImageutil {
 
     private static Logger logger = LoggerFactory.getLogger(PDFToImageutil.class);

@@ -1,4 +1,4 @@
-package com.zt.api.gateway.demo.util;
+package com.zt.api.gateway.demo.util.ztutil;
 
 import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 

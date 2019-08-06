@@ -1,4 +1,4 @@
-package com.zt.api.gateway.demo.util;
+package com.zt.api.gateway.demo.util.ztutil;
 
 import org.apache.tomcat.util.codec.binary.Base64;
 
