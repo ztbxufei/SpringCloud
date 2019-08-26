@@ -12,5 +12,6 @@ zt-upload: 文件上传下载服务模块（业务模块） port: 8301
 zt-user: 用户服务模块（业务模块）
 zt-order: 订单服务模块（业务模块） port: 8001
 zt-product: 商品服务模块（业务模块）port: 8101
+zt-utils: 工具类服务（工具类模块）port: 9009
 
 
