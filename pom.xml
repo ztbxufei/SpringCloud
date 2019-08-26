@@ -21,6 +21,10 @@
         <module>zt-mq-consumer</module>
         <module>zt-websocket</module>
         <module>zt-product</module>
+        <module>zt-concurrent</module>
+        <module>zt-httputil</module>
+        <module>zt-redis</module>
+        <module>zt-utils</module>
     </modules>
     <packaging>pom</packaging>
 
